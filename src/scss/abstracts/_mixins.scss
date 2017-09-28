@@ -1,0 +1,17 @@
+@mixin narrow {
+    @media screen and (min-width: #{$narrow-width}) {
+        @content;
+    }
+}
+
+@mixin wide {
+    @media screen and (min-width: #{$wide-width}) {
+        @content;
+    }
+}
+
+@mixin widest {
+    @media screen and (min-width: #{$widest-width}) {
+        @content;
+    }
+}

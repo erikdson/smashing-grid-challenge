@@ -1,0 +1,337 @@
+main, figure {
+  display: block; }
+
+* {
+  box-sizing: border-box; }
+
+html {
+  height: 100%;
+  width: 100%; }
+
+body {
+  display: flex;
+  min-height: 100%;
+  min-width: 100%;
+  background-attachment: fixed;
+  background-color: #E9E9E9;
+  background-image: url(../../images/camp-nou.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #4B4B4B;
+  font: 100%/1.5 'Source Sans Pro', sans-serif; }
+
+*, *:after, *:before {
+  margin: 0;
+  padding: 0; }
+
+.l-main {
+  display: grid;
+  grid-template-areas: "match" "field";
+  width: 100%;
+  flex-grow: 1; }
+  @supports not (display: grid) {
+    .l-main {
+      display: flex;
+      flex-direction: column; }
+      @media screen and (min-width: 64em) {
+        .l-main {
+          flex-direction: row; } } }
+  @media screen and (min-width: 64em) {
+    .l-main {
+      grid-template-areas: "match field field field field field"; } }
+
+.l-main__panel {
+  width: 100%; }
+
+.l-main__panel-match {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid #00CC8F;
+  padding-bottom: 2rem;
+  grid-area: match;
+  flex: 0 0 30%; }
+  @media screen and (min-width: 64em) {
+    .l-main__panel-match {
+      border-bottom: none;
+      border-right: 2px solid #00CC8F;
+      padding-bottom: 0; } }
+
+.l-main__panel-field {
+  grid-area: field; }
+
+@supports (display: grid) {
+  .l-main__panel {
+    width: auto; } }
+
+.c-summary {
+  padding: 6px 0 16px;
+  text-align: center; }
+
+.c-summary__teams {
+  display: inline-block; }
+  @supports (display: flex) {
+    .c-summary__teams {
+      display: flex;
+      justify-content: center; } }
+
+.c-summary__team {
+  display: inline-block;
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 16px; }
+
+.c-summary__teamlogoholder {
+  align-items: flex-end;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  justify-content: center;
+  min-height: 6.5rem; }
+
+.c-summary__teamimage_one {
+  width: 70px; }
+
+.c-summary__teamimage_two {
+  width: 85px; }
+
+.c-summary__teamname {
+  display: block; }
+
+.c-summary__teamname {
+  font-size: 20px; }
+
+.c-summary__detailterm {
+  color: #007029;
+  font-weight: 600;
+  margin-top: 24px;
+  text-transform: uppercase; }
+
+.c-summary__detailvalue {
+  font-size: 24px; }
+
+.c-field {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto; }
+  @media screen and (min-width: 64em) {
+    .c-field {
+      grid-template-columns: 1fr 15rem;
+      height: 100%; } }
+  @supports not (display: grid) {
+    .c-field {
+      display: flex;
+      flex-direction: column; }
+      @media screen and (min-width: 37.5em) {
+        .c-field {
+          flex-direction: row; } } }
+
+.c-field__starters {
+  background-color: #007029;
+  background-color: rgba(62, 145, 94, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  float: left;
+  width: 70%;
+  flex: 1 0 auto; }
+  @supports (display: flex) {
+    .c-field__starters {
+      width: 100%; } }
+  @media screen and (min-width: 37.5em) {
+    .c-field__starters {
+      flex: 1 0 70%;
+      width: 70%; } }
+
+.c-field__side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 auto;
+  position: relative;
+  padding: 16px 0; }
+  @supports (display: flex) {
+    .c-field__side {
+      padding: 0; } }
+
+.c-field__sidelabel {
+  font-size: .8125rem;
+  color: #FFF;
+  position: absolute;
+  top: 16px;
+  right: 16px; }
+
+.c-field__sideimage {
+  width: 32px; }
+
+.c-field__sideimage--madrid {
+  width: 42px; }
+
+.c-field__home {
+  border-bottom: 1px solid #00CC8F; }
+
+.c-field__away {
+  border-top: 1px solid #00CC8F; }
+
+.c-field__bench {
+  background-color: #E9E9E9;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  float: left;
+  width: 30%; }
+  @supports (display: flex) {
+    .c-field__bench {
+      width: 100%; } }
+  @media screen and (min-width: 64em) {
+    .c-field__bench {
+      border-left: 2px solid #00CC8F;
+      width: 30%; } }
+  .c-field__bench .c-field__away,
+  .c-field__bench .c-field__home {
+    flex: 1 0 auto; }
+
+.c-field__bencharea {
+  display: flex;
+  flex-direction: column; }
+
+@supports (display: grid) {
+  .c-field > div {
+    width: auto; } }
+
+.c-field__team {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, auto);
+  grid-gap: 12px;
+  align-items: center;
+  width: 100%;
+  min-height: 250px;
+  padding: 1rem 0; }
+  .c-field__team-one {
+    grid-template-areas: "k k k k" "d d d d" "m m m m" "f f f f"; }
+  .c-field__team-two {
+    grid-template-areas: "f f f f" "m m m m" "d d d d" "k k k k"; }
+  @media screen and (min-width: 37.5em) {
+    .c-field__team {
+      grid-gap: 16px; } }
+  @media screen and (min-width: 64em) {
+    .c-field__team {
+      grid-gap: 20px; } }
+  @supports (display: grid) {
+    .c-field__team {
+      display: grid; } }
+
+.c-field__group {
+  display: flex;
+  justify-self: center; }
+
+.c-field__keeper {
+  grid-area: k; }
+  .c-field__away .c-field__keeper {
+    order: 3; }
+
+.c-field__defenders {
+  grid-area: d; }
+  .c-field__away .c-field__defenders {
+    order: 2; }
+
+.c-field__midfielders {
+  grid-area: m; }
+  .c-field__away .c-field__midfielders {
+    order: 1; }
+
+.c-field__forwards {
+  grid-area: f; }
+  .c-field__away .c-field__forwards {
+    order: 0; }
+
+.c-field__player {
+  color: #fff;
+  display: block;
+  float: left;
+  width: 150px;
+  height: 100px;
+  margin-left: 6px;
+  margin-right: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center; }
+  @media screen and (min-width: 64em) {
+    .c-field__player {
+      margin-left: 12px;
+      margin-right: 12px; } }
+  @supports (display: flex) {
+    .c-field__player {
+      width: auto;
+      height: auto; } }
+
+.c-field__image {
+  border: 1px solid #00CC8F;
+  border-radius: 6px;
+  display: inline-block;
+  width: 32px; }
+  .c-field__bench .c-field__image {
+    margin-right: 5px; }
+
+.c-field__playerpicture {
+  border: 1px solid #00CC8F;
+  border-radius: 6px;
+  display: inline-block;
+  width: 32px; }
+
+.c-field__playernumber {
+  color: #FFF;
+  background-color: #007029;
+  border: 1px solid #00CC8F;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 2px;
+  width: 20px;
+  height: 20px; }
+  @media screen and (min-width: 64em) {
+    .c-field__playernumber {
+      width: 24px;
+      height: 24px; } }
+
+.c-field__playername {
+  display: block;
+  font-size: 11px;
+  font-size: .7125rem; }
+  @media screen and (min-width: 64em) {
+    .c-field__playername {
+      font-size: 14px; } }
+
+.c-field__benchtitle {
+  border-radius: 5px;
+  padding: 5px 10px 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 13px; }
+
+.c-field__sub {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #F3F3F3;
+  list-style: none; }
+
+.c-field__coach {
+  margin-top: auto;
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border-top: 1px solid #007029;
+  padding: 10px; }
+
+.c-field__coachlabel {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+  width: 100%; }

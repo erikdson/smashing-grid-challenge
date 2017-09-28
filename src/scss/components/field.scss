@@ -1,0 +1,277 @@
+.c-field {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;    
+    @include widest {
+        grid-template-columns: 1fr 15rem;
+        height: 100%;
+    }
+    // Flex fallback
+    @supports not (display: grid) {
+        display: flex;
+        flex-direction: column;
+        @include wide {
+            flex-direction: row;
+        }
+	}
+}
+
+.c-field__starters {
+    background-color: $color-secondary;
+    background-color: rgba(62, 145, 94, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // Float fallback
+    float: left;
+    width: 70%;
+    // Flex fallback
+    flex: 1 0 auto;
+    @supports (display: flex) {
+        width: 100%;
+    }
+    @include wide {
+        flex: 1 0 70%;
+        width: 70%;
+    }
+}
+
+.c-field__side {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    flex: 1 0 auto;
+    position: relative;
+    padding: 16px 0;
+    @supports (display: flex) {
+        padding: 0;
+    }
+}
+
+.c-field__sidelabel {
+    font-size: .8125rem;
+    color: #FFF;;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.c-field__sideimage {
+    width: 32px;
+}
+
+.c-field__sideimage--madrid {
+    width: 42px;
+}
+
+.c-field__home {
+    border-bottom: 1px solid $color-border-default;
+}
+.c-field__away {
+    border-top: 1px solid $color-border-default;
+}
+
+.c-field__bench {
+    background-color: $color-background-light;
+	background-color: rgba(255,255,255,.9);    
+    display: flex;
+    flex-direction: column;
+    // Float fallback
+    float: left;
+    width: 30%;
+    // Flex fallback
+    @supports (display: flex) {
+        width: 100%;
+    }
+    @include widest {
+        border-left: 2px solid $color-border-default;
+        width: 30%;
+    }
+
+    .c-field__away,
+    .c-field__home {
+        flex: 1 0 auto;
+    }
+}
+
+.c-field__bencharea {
+    display: flex;
+    flex-direction: column;
+}
+
+@supports (display: grid) {
+    .c-field > div {
+        width: auto;
+    }
+}
+
+.c-field__team {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-gap: 12px;
+    align-items: center;
+    width: 100%;
+    min-height: 250px;
+    padding: 1rem 0;
+    // Line-ups
+    &-one {
+        grid-template-areas: "k k k k"
+                             "d d d d"
+                             "m m m m"
+                             "f f f f";
+    }
+    &-two {
+        grid-template-areas: "f f f f"
+                             "m m m m"
+                             "d d d d"
+                             "k k k k";
+    }
+    @include wide {
+        grid-gap: 16px;
+    }
+    @include widest {
+        grid-gap: 20px;
+    }
+    @supports (display: grid) {
+        display: grid;
+    }
+}
+
+.c-field__group {
+    display: flex;
+    justify-self: center;
+}
+
+.c-field__keeper {
+    grid-area: k;
+    // Flex fallback
+    .c-field__away & {
+        order: 3;
+    }
+}
+.c-field__defenders {
+    grid-area: d;
+    // Flex fallback
+    .c-field__away & {
+        order: 2;
+    }
+}
+
+.c-field__midfielders {
+    grid-area: m;
+    // Flex fallback
+    .c-field__away & {
+        order: 1;
+    }
+}
+
+.c-field__forwards {
+    grid-area: f;
+    // Flex fallback
+    .c-field__away & {
+        order: 0;
+    }
+}
+
+.c-field__player {
+    color: #fff;
+    display: block;
+    float: left;
+    width: 150px;
+    height: 100px;
+    margin-left: 6px;
+    margin-right: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    @include widest {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+    @supports (display: flex) {
+        width: auto;
+        height: auto;
+    }
+}
+.c-field__image {
+    border: 1px solid $color-border-default;
+    border-radius: 6px;
+    display: inline-block;
+    width: 32px;
+    // OVERRIDE - Inside the bench
+    .c-field__bench & {
+        margin-right: 5px;
+    }
+}
+
+.c-field__playerpicture {
+    border: 1px solid $color-border-default;
+    border-radius: 6px;
+    display: inline-block;
+    width: 32px;
+}
+
+.c-field__playernumber {
+    color: #FFF;
+    background-color: $color-secondary;
+    border: 1px solid $color-border-default;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 2px;
+    width: 20px;
+    height: 20px;
+    @include widest {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.c-field__playername {
+    display: block;
+    font-size: 11px;
+    font-size: .7125rem;
+    @include widest {
+        font-size: 14px;
+    }
+}
+
+.c-field__benchtitle {
+    border-radius: 5px;
+    padding: 5px 10px 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.c-field__sub {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #F3F3F3;
+    list-style: none;
+}
+
+.c-field__coach {
+    margin-top: auto;
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-top: 1px solid $color-secondary;
+    padding: 10px;
+}
+.c-field__coachlabel {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+    width: 100%;
+
+}
+.c-field__coachname {
+
+}

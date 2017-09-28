@@ -1,0 +1,53 @@
+.c-summary {
+    padding: 6px 0 16px;;
+    text-align: center;
+}
+
+.c-summary__teams {
+    display: inline-block;
+    @supports (display: flex) {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.c-summary__team {
+    display: inline-block;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 16px;
+}
+
+.c-summary__teamlogoholder {
+    align-items: flex-end;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    justify-content: center;
+    min-height: 6.5rem;
+}
+.c-summary__teamimage_one {
+    width: 70px;
+}
+.c-summary__teamimage_two {
+    width: 85px;
+}
+
+.c-summary__teamname {
+    display: block;
+}
+
+.c-summary__teamname {
+    font-size: 20px;
+}
+
+.c-summary__detailterm {
+    color: $color-secondary;
+    font-weight: 600;
+    margin-top: 24px;
+    text-transform: uppercase;
+}
+.c-summary__detailvalue {
+    font-size: 24px;
+}

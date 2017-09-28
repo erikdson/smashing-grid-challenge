@@ -1,0 +1,84 @@
+@import "abstracts/abstracts";
+
+main, figure {
+	display: block;
+}
+
+* {
+	box-sizing: border-box;
+}
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	display: flex;
+	min-height: 100%;
+	min-width: 100%;
+	background-attachment: fixed;
+	background-color: $color-background-light;
+	background-image: url(../../images/camp-nou.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	color: $color-text-grey;
+	font: 100%/1.5 'Source Sans Pro', sans-serif;
+}
+
+*, *:after, *:before{
+	margin: 0;
+	padding: 0;
+}
+
+.l-main {
+	display: grid;
+	grid-template-areas: "match"
+						 "field";
+	width: 100%;
+	flex-grow: 1;
+    // Flex fallback
+    @supports not (display: grid) {
+        display: flex;
+        flex-direction: column;
+        @include widest {
+            flex-direction: row;
+        }
+	}
+	@include widest {
+		grid-template-areas: "match field field field field field";
+	}
+}
+
+.l-main__panel {
+	width: 100%;
+}
+
+.l-main__panel-match {
+	background-color: #fff;
+	background-color: rgba(255,255,255,.8);
+	border-bottom: 2px solid $color-border-default;
+	padding-bottom: 2rem;
+	grid-area: match;
+	// Flex fallbacks
+	flex: 0 0 30%;
+	// Breakpoints
+	@include widest {
+		border-bottom: none;
+		border-right: 2px solid $color-border-default;
+		padding-bottom: 0;
+	}
+}
+.l-main__panel-field {
+	grid-area: field;
+}
+
+@supports (display: grid) {
+	.l-main__panel {
+		width: auto;
+	}
+}
+
+// Components
+@import "components/summary";
+@import "components/field";
