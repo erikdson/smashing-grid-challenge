@@ -223,6 +223,7 @@
     margin-right: 2px;
     width: 20px;
     height: 20px;
+    line-height: 1.65;
     @include widest {
         width: 24px;
         height: 24px;
@@ -232,8 +233,10 @@
 .c-field__playername {
     display: block;
     font-size: 11px;
-    font-size: .7125rem;
     @include widest {
+        font-size: 14px;
+    }
+    .c-field__subs & {
         font-size: 14px;
     }
 }

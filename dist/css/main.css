@@ -291,7 +291,8 @@ body {
   display: inline-block;
   margin-right: 2px;
   width: 20px;
-  height: 20px; }
+  height: 20px;
+  line-height: 1.65; }
   @media screen and (min-width: 64em) {
     .c-field__playernumber {
       width: 24px;
@@ -299,11 +300,12 @@ body {
 
 .c-field__playername {
   display: block;
-  font-size: 11px;
-  font-size: .7125rem; }
+  font-size: 11px; }
   @media screen and (min-width: 64em) {
     .c-field__playername {
       font-size: 14px; } }
+  .c-field__subs .c-field__playername {
+    font-size: 14px; }
 
 .c-field__benchtitle {
   border-radius: 5px;
