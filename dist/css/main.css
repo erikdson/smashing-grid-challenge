@@ -204,8 +204,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, auto);
   grid-gap: 12px;
   align-items: center;
   width: 100%;
@@ -227,7 +225,8 @@ body {
 
 .c-field__group {
   display: flex;
-  justify-self: center; }
+  justify-self: center;
+  margin: 5px 0; }
 
 .c-field__keeper {
   grid-area: k; }
@@ -262,8 +261,8 @@ body {
   text-align: center; }
   @media screen and (min-width: 64em) {
     .c-field__player {
-      margin-left: 12px;
-      margin-right: 12px; } }
+      margin-left: 10px;
+      margin-right: 10px; } }
   @supports (display: flex) {
     .c-field__player {
       width: auto;
