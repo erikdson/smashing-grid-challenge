@@ -2,6 +2,8 @@
 
 This is my attempt at the CSS grid challenge from Smashing Magazine. The website previews the upcoming football game between FC Barcelona and Real Madrid. The layout is build with many different techniques with fallbacks to make the website usable in older browsers such as Internet Explorer 8 and 9.
 
+[Check out the result right here!](https://erikdson.github.io/smashing-grid-challenge/)
+
 ## Instructions for the website
 
 * Clone the repository.
