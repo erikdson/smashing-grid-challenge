@@ -1,36 +1,28 @@
 .c-field {
+    display: flex;
+    flex-direction: column;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;    
-    @include widest {
+    grid-template-rows: 1fr auto;
+    height: 100%;
+    @include wide {
         grid-template-columns: 1fr 15rem;
-        height: 100%;
+        flex-direction: row;
     }
-    // Flex fallback
-    @supports not (display: grid) {
-        display: flex;
-        flex-direction: column;
-        @include wide {
-            flex-direction: row;
-        }
-	}
 }
 
 .c-field__starters {
     background-color: $color-secondary;
-    background-color: rgba(62, 145, 94, 0.8);
+    background-color: $color-transp-background;
     display: flex;
     flex-direction: column;
     justify-content: center;
     // Float fallback
     float: left;
-    width: 70%;
+    width: 100%;
     // Flex fallback
     flex: 1 0 auto;
-    @supports (display: flex) {
-        width: 100%;
-    }
-    @include wide {
+    @include widest {
         flex: 1 0 70%;
         width: 70%;
     }
@@ -49,8 +41,6 @@
 }
 
 .c-field__sidelabel {
-    font-size: .8125rem;
-    color: #FFF;;
     position: absolute;
     top: 16px;
     right: 16px;
@@ -73,16 +63,14 @@
 
 .c-field__bench {
     background-color: $color-background-light;
-	background-color: rgba(255,255,255,.9);    
+	background-color: $color-transp-white-900;    
     display: flex;
     flex-direction: column;
     // Float fallback
     float: left;
-    width: 30%;
     // Flex fallback
-    @supports (display: flex) {
-        width: 100%;
-    }
+    flex: 1 0 auto;
+    width: 100%;
     @include widest {
         border-left: 2px solid $color-border-default;
         width: 30%;
@@ -176,10 +164,9 @@
 }
 
 .c-field__player {
-    color: #fff;
+    color: $color-white;
     display: block;
     float: left;
-    width: 150px;
     height: 100px;
     margin-left: 6px;
     margin-right: 6px;
@@ -214,7 +201,7 @@
 }
 
 .c-field__playernumber {
-    color: #FFF;
+    color: $color-white;
     background-color: $color-secondary;
     border: 1px solid $color-border-default;
     border-radius: 50%;
@@ -254,7 +241,7 @@
     display: flex;
     align-items: center;
     padding: 10px;
-    border-top: 1px solid #F3F3F3;
+    border-top: 1px solid $color-border-light;
     list-style: none;
 }
 
@@ -263,7 +250,7 @@
     align-items: flex-start;
     display: flex;
     flex-wrap: wrap;
-    background-color: #fff;
+    background-color: $color-white;
     border-top: 1px solid $color-secondary;
     padding: 10px;
 }
@@ -272,8 +259,5 @@
     font-size: 12px;
     margin-bottom: 5px;
     width: 100%;
-
-}
-.c-field__coachname {
 
 }

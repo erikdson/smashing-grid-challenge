@@ -32,45 +32,57 @@ body {
 }
 
 .l-main {
+	display: flex;
+	flex-direction: column;
 	display: grid;
 	grid-template-areas: "match"
 						 "field";
 	width: 100%;
 	flex-grow: 1;
-    // Flex fallback
-    @supports not (display: grid) {
-        display: flex;
-        flex-direction: column;
-        @include widest {
-            flex-direction: row;
-        }
-	}
 	@include widest {
 		grid-template-areas: "match field field field field field";
+		flex-direction: row;
 	}
 }
 
 .l-main__panel {
-	width: 100%;
+	float: left;
 }
 
 .l-main__panel-match {
-	background-color: #fff;
-	background-color: rgba(255,255,255,.8);
+	background-color: $color-white;
+	background-color: $color-transp-white-800;
 	border-bottom: 2px solid $color-border-default;
 	padding-bottom: 2rem;
 	grid-area: match;
+	width: 30%;
 	// Flex fallbacks
-	flex: 0 0 30%;
+	flex: 0 0 auto;
 	// Breakpoints
 	@include widest {
+		flex: 0 0 30%;
 		border-bottom: none;
 		border-right: 2px solid $color-border-default;
 		padding-bottom: 0;
 	}
+	@supports (display: flex) {
+		width: 100%;
+	}
+	@supports (display: grid) {
+		width: auto;
+	}
 }
+
+
 .l-main__panel-field {
 	grid-area: field;
+	@include wide {
+		width: 70%;
+	}
+	@supports (display: grid) {
+		width: auto;
+	}
+
 }
 
 @supports (display: grid) {

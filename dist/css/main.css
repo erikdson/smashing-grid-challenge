@@ -26,39 +26,49 @@ body {
   padding: 0; }
 
 .l-main {
+  display: flex;
+  flex-direction: column;
   display: grid;
   grid-template-areas: "match" "field";
   width: 100%;
   flex-grow: 1; }
-  @supports not (display: grid) {
-    .l-main {
-      display: flex;
-      flex-direction: column; }
-      @media screen and (min-width: 64em) {
-        .l-main {
-          flex-direction: row; } } }
   @media screen and (min-width: 64em) {
     .l-main {
-      grid-template-areas: "match field field field field field"; } }
+      grid-template-areas: "match field field field field field";
+      flex-direction: row; } }
 
 .l-main__panel {
-  width: 100%; }
+  float: left; }
 
 .l-main__panel-match {
-  background-color: #fff;
+  background-color: #FFF;
   background-color: rgba(255, 255, 255, 0.8);
   border-bottom: 2px solid #00CC8F;
   padding-bottom: 2rem;
   grid-area: match;
-  flex: 0 0 30%; }
+  width: 30%;
+  flex: 0 0 auto; }
   @media screen and (min-width: 64em) {
     .l-main__panel-match {
+      flex: 0 0 30%;
       border-bottom: none;
       border-right: 2px solid #00CC8F;
       padding-bottom: 0; } }
+  @supports (display: flex) {
+    .l-main__panel-match {
+      width: 100%; } }
+  @supports (display: grid) {
+    .l-main__panel-match {
+      width: auto; } }
 
 .l-main__panel-field {
   grid-area: field; }
+  @media screen and (min-width: 37.5em) {
+    .l-main__panel-field {
+      width: 70%; } }
+  @supports (display: grid) {
+    .l-main__panel-field {
+      width: auto; } }
 
 @supports (display: grid) {
   .l-main__panel {
@@ -88,7 +98,7 @@ body {
   margin-right: auto;
   margin-bottom: 5px;
   justify-content: center;
-  min-height: 6.5rem; }
+  height: 85px; }
 
 .c-summary__teamimage_one {
   width: 70px; }
@@ -112,20 +122,16 @@ body {
   font-size: 24px; }
 
 .c-field {
+  display: flex;
+  flex-direction: column;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto; }
-  @media screen and (min-width: 64em) {
+  grid-template-rows: 1fr auto;
+  height: 100%; }
+  @media screen and (min-width: 37.5em) {
     .c-field {
       grid-template-columns: 1fr 15rem;
-      height: 100%; } }
-  @supports not (display: grid) {
-    .c-field {
-      display: flex;
-      flex-direction: column; }
-      @media screen and (min-width: 37.5em) {
-        .c-field {
-          flex-direction: row; } } }
+      flex-direction: row; } }
 
 .c-field__starters {
   background-color: #007029;
@@ -134,12 +140,9 @@ body {
   flex-direction: column;
   justify-content: center;
   float: left;
-  width: 70%;
+  width: 100%;
   flex: 1 0 auto; }
-  @supports (display: flex) {
-    .c-field__starters {
-      width: 100%; } }
-  @media screen and (min-width: 37.5em) {
+  @media screen and (min-width: 64em) {
     .c-field__starters {
       flex: 1 0 70%;
       width: 70%; } }
@@ -156,8 +159,6 @@ body {
       padding: 0; } }
 
 .c-field__sidelabel {
-  font-size: .8125rem;
-  color: #FFF;
   position: absolute;
   top: 16px;
   right: 16px; }
@@ -180,10 +181,8 @@ body {
   display: flex;
   flex-direction: column;
   float: left;
-  width: 30%; }
-  @supports (display: flex) {
-    .c-field__bench {
-      width: 100%; } }
+  flex: 1 0 auto;
+  width: 100%; }
   @media screen and (min-width: 64em) {
     .c-field__bench {
       border-left: 2px solid #00CC8F;
@@ -249,10 +248,9 @@ body {
     order: 0; }
 
 .c-field__player {
-  color: #fff;
+  color: #FFF;
   display: block;
   float: left;
-  width: 150px;
   height: 100px;
   margin-left: 6px;
   margin-right: 6px;
@@ -327,7 +325,7 @@ body {
   align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
-  background-color: #fff;
+  background-color: #FFF;
   border-top: 1px solid #007029;
   padding: 10px; }
 
